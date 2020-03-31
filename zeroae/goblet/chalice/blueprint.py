@@ -77,9 +77,9 @@ def register():
 @bp.route("/callback")
 def register_callback():
     """
-    Finishes the GitHub Application  Registration flow.
-    1. Converts code for clientId, clientSecret, webhook secret, and App PEM
-    2. Stores above in DynamoDB
+    Finishes the GitHub Application Registration flow.
+        1. Converts code for clientId, clientSecret, webhook secret, and App PEM
+        2. Stores above in DynamoDB
 
     :return:
     """
