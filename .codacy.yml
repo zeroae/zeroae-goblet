@@ -1,0 +1,8 @@
+---
+exclude_paths:
+  - '.github/**'
+  - '{{cookiecutter.project_namespace}}/{{cookiecutter.project_slug}}/_version.py'
+  - 'tests/**/*'
+  - 'tests/*'
+  - 'benchmarks/**/*'
+  - 'setup.py'

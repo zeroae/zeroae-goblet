@@ -1,0 +1,52 @@
+---
+codecov:
+  #
+  # TODO: Place your codecov.io *BADGE* token here for private repositories
+  badge_token: CODECOV_BADGE_TOKEN
+
+codacy:
+  #
+  # TODO: Place your CODACY Project Id here.
+  #       This is used for displaying your badge in public and private repos
+  project_id: CODACY_BADGE_TOKEN
+
+ght:
+  command_line_interface:
+    - (*) Click
+    - ( ) None
+
+  license:
+    - (*) MIT
+    - ( ) BSD
+    - ( ) ISC
+    - ( ) Apache
+    - ( ) GNUv3
+    - ( ) Proprietary
+
+cookiecutter:
+  #
+  # These were guess based on the repository information
+  # You probably want to customize them.
+  project_namespace: "{{ github.repository.full_name.split('/')[0].lower().replace(' ', '_').replace('-', '_') }}"
+  project_slug: "{{ github.repository.name.lower().replace(' ', '_').replace('-', '_').replace(cookiecutter.project_namespace+'_', '') }}"
+  project_name: "{{ cookiecutter.project_namespace }}'s {{ cookiecutter.project_slug }}"
+
+  #
+  # These are likely correct...
+  anaconda_organization: "{{ cookiecutter.github_organization }}"
+
+  #
+  # These should not be changed at the moment...
+  noarch_python: y
+  use_pytest: y
+  add_pyup_badge: y
+  version: 0.0.0
+
+  #
+  # These should probably be left alone. They came from github
+  full_name: "{{ github.author.name }}"
+  email: "{{ github.author.email }}"
+  github_username: "{{ github.author.username }}"
+  github_organization: "{{ github.repository.full_name.split('/')[0] }}"
+  project_repo: "{{ github.repository.name }}"
+  project_short_description: "{{ github.repository.description }}"
