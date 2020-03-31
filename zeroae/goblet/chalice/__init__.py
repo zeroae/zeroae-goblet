@@ -1,6 +1,4 @@
-"""
-The Chalice Blueprint and Configuration for the Goblin framework.
-"""
+"""The Chalice Blueprint and Configuration for the Goblin framework."""
 from .blueprint import bp
 from ..config import configure
 
