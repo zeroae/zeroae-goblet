@@ -1,15 +1,11 @@
-{# raw is for ignoring templating with cookiecutter, leaving it for use with conda-build #}
-{%- raw %}
+
 {% set data = load_setup_py_data() %}
 {% set rosetta = data["conda_rosetta_stone"] %}
-{%- endraw %}
 
 package:
-  name: {{ cookiecutter.project_repo}}
-  {# raw is for ignoring templating with cookiecutter, leaving it for use with conda-build #}
-  {%- raw %}
+  name: zeroae-goblet
+  
   version: {{ data['version'] }}
-  {%- endraw %}
 
 source:
   path: ..
@@ -19,13 +15,8 @@ build:
   # separate bld.bat and build.sh files instead of this key.  Add the line
   # "skip: True  # [py<35]" (for example) to limit to Python 3.5 and newer, or
   # "skip: True  # [not win]" to limit to Windows.
-  {%- raw %}
   script: {{ PYTHON }} -m pip install --no-deps --ignore-installed -vv .
-  {%- endraw %}
-  {% if cookiecutter.noarch_python == 'y' -%}
   noarch: python
-  {%- endif %}
-  {%- raw %}
   {%- if 'entry_points' in data and 'console_scripts' in data['entry_points'] %}
   entry_points:
     {% for entry in data['entry_points']['console_scripts'] %}
@@ -33,58 +24,45 @@ build:
       - {{ kv[0].strip() }} = {{ kv[1].strip() }}
     {% endfor %}
   {%- endif %}
-  {%- endraw %}
 
 requirements:
   # if you need compilers, uncomment these
   #    read more at https://docs.conda.io/projects/conda-build/en/latest/resources/compiler-tools.html
   # build:
-  {%- raw %}
   #   - {{ compilers('c') }}
-  {%- endraw %}
   host:
-    {%- raw %}
     - python {{ data['python_requires'] }}
     - pip
     {% for dep in data['setup_requires'] %}
     - {{ rosetta.get(dep, dep).lower() }}
     {% endfor %}
     {# raw is for ignoring templating with cookiecutter, leaving it for use with conda-build #}
-    {%- endraw %}
   run:
     - python
-    {%- raw %}
     # dependencies are defined in setup.py
     {% for dep in data['install_requires'] %}
     - {{ rosetta.get(dep, dep).lower() }}
     {% endfor %}
-    {%- endraw %}
 
 test:
   source_files:
     - tests
   requires:
-    {%- raw %}
     # dependencies are defined in setup.py
     {% for dep in data['tests_require'] %}
     - {{ rosetta.get(dep, dep).lower() }}
     {% endfor %}
-    {%- endraw %}
 
   commands:
-    {%- raw %}
     {%- if 'entry_points' in data and 'console_scripts' in data['entry_points'] %}
     {%- for entry in data['entry_points']['console_scripts'] %}
     - {{ entry.split('=')[0].strip() }} --help
     {%- endfor %}
     {%- endif %}
-    {%- endraw %}
     - pytest tests
 
 about:
-  home: https://github.com/{{ cookiecutter.github_organization}}/{{ cookiecutter.project_repo}}
-  summary: {{ cookiecutter.project_short_description }}
-  {%- raw %}
+  home: https://github.com/zeroae/zeroae-goblet
+  summary: A Chalice blueprint for creating GitHub Apps
   license: {{ data.get('license') }}
-  {%- endraw %}
   license_file: LICENSE

@@ -5,10 +5,7 @@ codecov:
   badge_token: CODECOV_BADGE_TOKEN
 
 codacy:
-  #
-  # TODO: Place your CODACY Project Id here.
-  #       This is used for displaying your badge in public and private repos
-  project_id: CODACY_BADGE_TOKEN
+  project_id: 2b7e8dd25f3a40e08a98d5b094181c4b
 
 ght:
   command_line_interface:
@@ -16,10 +13,10 @@ ght:
     - ( ) None
 
   license:
-    - (*) MIT
+    - ( ) MIT
     - ( ) BSD
     - ( ) ISC
-    - ( ) Apache
+    - (*) Apache
     - ( ) GNUv3
     - ( ) Proprietary
 
@@ -27,13 +24,13 @@ cookiecutter:
   #
   # These were guess based on the repository information
   # You probably want to customize them.
-  project_namespace: "{{ github.repository.full_name.split('/')[0].lower().replace(' ', '_').replace('-', '_') }}"
-  project_slug: "{{ github.repository.name.lower().replace(' ', '_').replace('-', '_').replace(cookiecutter.project_namespace+'_', '') }}"
-  project_name: "{{ cookiecutter.project_namespace }}'s {{ cookiecutter.project_slug }}"
+  project_namespace: "zeroae"
+  project_slug: "goblet"
+  project_name: "ZeroAE's GitHub App framework"
 
   #
   # These are likely correct...
-  anaconda_organization: "{{ cookiecutter.github_organization }}"
+  anaconda_organization: "zeroae"
 
   #
   # These should not be changed at the moment...
@@ -44,9 +41,22 @@ cookiecutter:
 
   #
   # These should probably be left alone. They came from github
-  full_name: "{{ github.author.name }}"
-  email: "{{ github.author.email }}"
-  github_username: "{{ github.author.username }}"
-  github_organization: "{{ github.repository.full_name.split('/')[0] }}"
-  project_repo: "{{ github.repository.name }}"
-  project_short_description: "{{ github.repository.description }}"
+  full_name: "Patrick Sodré"
+  email: "psodre@gmail.com"
+  github_username: "sodre"
+  github_organization: "zeroae"
+  project_repo: "zeroae-goblet"
+  project_short_description: "A Chalice blueprint for creating GitHub Apps"
+
+#
+# These were picked up during Initial Commit...
+github:
+  author:
+    email: psodre@gmail.com
+    name: Patrick Sodré
+    username: sodre
+  repository:
+    name: zeroae-goblet
+    full_name: zeroae/zeroae-goblet
+    description: A Chalice blueprint for creating GitHub Apps
+    private: false

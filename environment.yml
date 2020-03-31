@@ -1,6 +1,6 @@
-name: {{ cookiecutter.project_repo }}-dev
+name: zeroae-goblet-dev
 channels:
-  - {{ cookiecutter.anaconda_organization }}
+  - zeroae
   - conda-forge
   - defaults
 dependencies:
@@ -30,5 +30,4 @@ dependencies:
   - black
   - flake8
   - twine
-
 

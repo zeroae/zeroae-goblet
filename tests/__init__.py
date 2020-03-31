@@ -1,1 +1,1 @@
-"""Unit test package for {{ cookiecutter.project_repo }}."""
+"""Unit test package for zeroae-goblet."""
