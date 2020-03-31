@@ -18,14 +18,9 @@ requirements = [
     "entrypoints",
     "environs",
     "jinja2",
-    "octokitpy",
-    "pyasn1==0.4.8",
+    "octokitpy==0.13.0",
     "pypubsub==4.0.3",
     "python-dateutil",
-    "python-jose==3.0.1",
-    "requests==2.22.0",
-    "rsa==4.0",
-    "semver",
     # fmt: on
 ]
 
