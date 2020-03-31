@@ -1,5 +1,5 @@
 ### Environment Information
-* {{ cookiecutter.project_name }} version:
+* ZeroAE's GitHub App framework version:
 * Python version:
 * Operating System:
 
