@@ -77,7 +77,7 @@ def register():
 @bp.route("/callback")
 def register_callback():
     """
-    Finishes the GitHub application registration flow.
+    Finish the GitHub application registration flow.
 
     Converts code for clientId, clientSecret, webhook secret, and App PEM
     Saves result in the configuration backend
