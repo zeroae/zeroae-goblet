@@ -5,8 +5,8 @@ import pytest
 
 
 @pytest.fixture
-def mock_ghe_2_16_api_spec(monkeypatch):
-    monkeypatch.setenv("GHE_API_SPEC", "ghe-2.16")
+def mock_ghe_lowest_api_spec(monkeypatch):
+    monkeypatch.setenv("GHE_API_SPEC", "ghe-2.17")
     monkeypatch.setenv("GHE_PROTO", "http")
     monkeypatch.setenv("GHE_HOST", "github.test")
 
@@ -20,12 +20,12 @@ def test_github_spec(default_config):
     assert config.GHE_API_URL.geturl() == "https://api.github.com"
 
 
-def test_ghe_2_16_spec(env, mock_ghe_2_16_api_spec, default_config):
+def test_ghe_lowest_spec(env, mock_ghe_lowest_api_spec, default_config):
     from zeroae.goblet import config
 
     assert config.GHE_PROTO == "http"
     assert config.GHE_HOST == "github.test"
-    assert config.GHE_API_SPEC == "ghe-2.16"
+    assert config.GHE_API_SPEC == "ghe-2.17"
     assert config.GHE_API_URL.geturl() == "http://github.test/api/v3"
 
 
