@@ -106,7 +106,7 @@ def _load_app_options(env: Env):
 
 def _load_app_registration_options(env: Env):
     """
-    TODO: decrypt these with Credstash, SecretsManager, or ParameterStore
+    TODO: decrypt these with Credstash, SecretsManager, or ParameterStore.
       ref: https://github.com/aws/chalice/issues/859#issuecomment-547676237
       ref: https://environ-config.readthedocs.io/en/stable/tutorial.html
       ref: https://bit.ly/why-you-shouldnt-use-env-variables-for-secret-data

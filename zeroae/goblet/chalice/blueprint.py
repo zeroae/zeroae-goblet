@@ -32,8 +32,6 @@ from ..views import render_setup_html
 
 
 class GitHubAppBlueprint(Blueprint):
-    def __init__(self, import_name):
-        super().__init__(import_name)
         pub.setListenerExcHandler(ExcPublisher(pub.getDefaultTopicMgr()))
 
     @staticmethod
@@ -76,7 +74,7 @@ def register():
 @bp.route("/callback")
 def register_callback():
     """
-    Finishes the GitHub Application  Registration flow
+    Finishes the GitHub Application  Registration flow.
     1. Converts code for clientId, clientSecret, webhook secret, and App PEM
     2. Stores above in DynamoDB
 

@@ -52,7 +52,7 @@ def infer_app_url(headers: dict, register_path: str) -> str:
 
 def get_create_app_url():
     """
-    Returns GitHub's Create Application URL
+    Returns GitHub's Create Application URL.
     :return:
     """
     org = config.APP_ORGANIZATION
