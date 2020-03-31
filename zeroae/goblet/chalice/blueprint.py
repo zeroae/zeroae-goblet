@@ -78,7 +78,6 @@ def register():
 def register_callback():
     """
     Finishes the GitHub Application Registration flow.
-
     1. Converts code for clientId, clientSecret, webhook secret, and App PEM
     2. Saves result in the configuration backend
     :return:
