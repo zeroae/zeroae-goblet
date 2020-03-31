@@ -1,6 +1,9 @@
-from jinja2 import Environment, PackageLoader
+from jinja2 import Environment, PackageLoader, select_autoescape
 
-j2: Environment = Environment(loader=PackageLoader(__name__, "templates"))
+j2: Environment = Environment(
+    autoescape=select_autoescape(["html", "htm", "xml"]),
+    loader=PackageLoader(__name__, "templates"),
+)
 
 
 def render_setup_html(app_manifest, create_app_url):

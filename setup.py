@@ -17,7 +17,7 @@ requirements = [
     "click-plugins",
     "entrypoints",
     "environs",
-    "jinja2",
+    "jinja2>=2.9,<3",
     "octokitpy>=0.13.0,<0.14",
     "pypubsub>=4.0.3,<5",
     "python-dateutil",
