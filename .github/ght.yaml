@@ -5,10 +5,7 @@ codecov:
   badge_token: CODECOV_BADGE_TOKEN
 
 codacy:
-  #
-  # TODO: Place your CODACY Project Id here.
-  #       This is used for displaying your badge in public and private repos
-  project_id: CODACY_BADGE_TOKEN
+  project_id: 2b7e8dd25f3a40e08a98d5b094181c4b
 
 ght:
   command_line_interface:
@@ -16,10 +13,10 @@ ght:
     - ( ) None
 
   license:
-    - (*) MIT
+    - ( ) MIT
     - ( ) BSD
     - ( ) ISC
-    - ( ) Apache
+    - (*) Apache
     - ( ) GNUv3
     - ( ) Proprietary
 
@@ -29,7 +26,7 @@ cookiecutter:
   # You probably want to customize them.
   project_namespace: "zeroae"
   project_slug: "goblet"
-  project_name: "zeroae's goblet"
+  project_name: "zeroae's github app framework"
 
   #
   # These are likely correct...
