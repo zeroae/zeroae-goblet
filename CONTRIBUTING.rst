@@ -15,7 +15,7 @@ Types of Contributions
 Report Bugs
 ~~~~~~~~~~~
 
-Report bugs at https://github.com/{{ cookiecutter.github_organization }}/{{ cookiecutter.project_repo }}/issues.
+Report bugs at https://github.com/zeroae/zeroae-goblet/issues.
 
 If you are reporting a bug, please include:
 
@@ -38,14 +38,14 @@ and "help wanted" is open to whoever wants to implement it.
 Write Documentation
 ~~~~~~~~~~~~~~~~~~~
 
-{{ cookiecutter.project_name }} could always use more documentation, whether as part of the
-official {{ cookiecutter.project_name }} docs, in docstrings, or even on the web in blog posts,
+zeroae's github app framework could always use more documentation, whether as part of the
+official zeroae's github app framework docs, in docstrings, or even on the web in blog posts,
 articles, and such.
 
 Submit Feedback
 ~~~~~~~~~~~~~~~
 
-The best way to send feedback is to file an issue at https://github.com/{{ cookiecutter.github_organization }}/{{ cookiecutter.project_repo }}/issues.
+The best way to send feedback is to file an issue at https://github.com/zeroae/zeroae-goblet/issues.
 
 If you are proposing a feature:
 
@@ -57,18 +57,18 @@ If you are proposing a feature:
 Get Started!
 ------------
 
-Ready to contribute? Here's how to set up `{{ cookiecutter.project_repo }}` for local development.
+Ready to contribute? Here's how to set up `zeroae-goblet` for local development.
 
-1. Fork the `{{ cookiecutter.project_repo }}` repo on GitHub.
+1. Fork the `zeroae-goblet` repo on GitHub.
 2. Clone your fork locally::
 
-    $ git clone git@github.com:your_name_here/{{ cookiecutter.project_repo }}.git
+    $ git clone git@github.com:your_name_here/zeroae-goblet.git
 
 3. Install your local copy into a conda environment. Assuming you have conda installed, this is how you set up your fork for local development::
 
-    $ cd {{ cookiecutter.project_repo }}/
+    $ cd zeroae-goblet/
     $ make init
-    $ conda activate {{ cookiecutter.project_repo }}-dev
+    $ conda activate zeroae-goblet-dev
     $ pip install -e . --no-deps
 
 4. Create a branch for local development, use the ``f-``, ``i-`` or ``chore-`` prefixes to auto-label your PR::
@@ -108,7 +108,7 @@ Tips
 
 To run a subset of tests::
 
-    $ pytest tests.test_{{ cookiecutter.project_slug }}
+    $ pytest tests.test_goblet
 
 Deploying
 ---------

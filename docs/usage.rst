@@ -2,6 +2,6 @@
 Usage
 =====
 
-To use {{ cookiecutter.project_name }} in a project::
+To use zeroae's github app framework in a project::
 
-    import {{ cookiecutter.project_slug }}
+    import goblet

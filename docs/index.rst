@@ -1,4 +1,4 @@
-Welcome to {{ cookiecutter.project_name }}'s documentation!
+Welcome to zeroae's github app framework's documentation!
 ======================================
 
 .. toctree::
