@@ -76,9 +76,11 @@ def register():
 
 @bp.route("/callback")
 def register_callback():
-    """Finishes the GitHub application registration flow.
-    1. Converts code for clientId, clientSecret, webhook secret, and App PEM
-    2. Saves result in the configuration backend
+    """
+    Finishes the GitHub application registration flow.
+
+    Converts code for clientId, clientSecret, webhook secret, and App PEM
+    Saves result in the configuration backend
     :return:
     """
     query_params = bp.current_request.query_params
