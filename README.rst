@@ -1,5 +1,5 @@
 =============================
-zeroae's github app framework
+ZeroAE's GitHub App framework
 =============================
 
 .. image:: https://img.shields.io/github/workflow/status/zeroae/zeroae-goblet/pypa-conda?label=pypa-conda&logo=github&style=flat-square

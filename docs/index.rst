@@ -1,4 +1,4 @@
-Welcome to zeroae's github app framework's documentation!
+Welcome to ZeroAE's GitHub App framework's documentation!
 ======================================
 
 .. toctree::

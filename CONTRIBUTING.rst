@@ -38,8 +38,8 @@ and "help wanted" is open to whoever wants to implement it.
 Write Documentation
 ~~~~~~~~~~~~~~~~~~~
 
-zeroae's github app framework could always use more documentation, whether as part of the
-official zeroae's github app framework docs, in docstrings, or even on the web in blog posts,
+ZeroAE's GitHub App framework could always use more documentation, whether as part of the
+official ZeroAE's GitHub App framework docs, in docstrings, or even on the web in blog posts,
 articles, and such.
 
 Submit Feedback

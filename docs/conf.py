@@ -47,7 +47,7 @@ source_suffix = ".rst"
 master_doc = "index"
 
 # General information about the project.
-project = "zeroae's github app framework"
+project = "ZeroAE's GitHub App framework"
 copyright = "2020, Patrick Sodré"
 author = "Patrick Sodré"
 
@@ -133,7 +133,7 @@ latex_documents = [
     (
         master_doc,
         "goblet.tex",
-        "zeroae's github app framework Documentation",
+        "ZeroAE's GitHub App framework Documentation",
         "Patrick Sodré",
         "manual",
     ),
@@ -150,7 +150,7 @@ man_pages = [
     (
         master_doc,
         "goblet",
-        "zeroae's github app framework Documentation",
+        "ZeroAE's GitHub App framework Documentation",
         [author],
         1
     )
@@ -168,7 +168,7 @@ texinfo_documents = [
     (
         master_doc,
         "goblet",
-        "zeroae's github app framework Documentation",
+        "ZeroAE's GitHub App framework Documentation",
         author,
         "goblet",
         "One line description of project.",
