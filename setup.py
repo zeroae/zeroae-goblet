@@ -12,9 +12,15 @@ with open("README.rst") as readme_file:
 # The requirements section should be kept in sync with the environment.yml file
 requirements = [
     # fmt: off
+    "chalice>=1.13",
     "click>=7.0",
     "click-plugins",
     "entrypoints",
+    "environs",
+    "jinja2>=2.9,<3",
+    "octokitpy>=0.13.0,<0.14",
+    "PyPubSub>=4.0.3,<5",
+    "python-dateutil",
     # fmt: on
 ]
 
@@ -29,6 +35,7 @@ setup_requirements = [
 test_requirements = [
     # fmt: off
     "pytest>=3",
+    "pytest-chalice",
     "pytest-cov",
     # fmt: on
 ]

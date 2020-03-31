@@ -135,7 +135,7 @@ jobs:
     if: github.event_name == 'pull_request'
     strategy:
       matrix:
-        os: [ubuntu-latest, windows-latest, macOS-latest]
+        os: [ubuntu-latest, macOS-latest]
         python-version: [3.8]
     runs-on: ${{ matrix.os }}
     steps:
