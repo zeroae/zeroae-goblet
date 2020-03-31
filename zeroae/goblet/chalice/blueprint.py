@@ -33,7 +33,7 @@ from ..views import render_setup_html
 
 class GitHubAppBlueprint(Blueprint):
     def __init__(self, import_name):
-        """Creates the Chalice GitHubApp Blueprint"""
+        """Creates the Chalice GitHubApp Blueprint."""
         super().__init__(import_name)
         pub.setListenerExcHandler(ExcPublisher(pub.getDefaultTopicMgr()))
 
