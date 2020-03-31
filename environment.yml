@@ -13,12 +13,25 @@ dependencies:
   - wheel
 
   # Install Requirements (setup.py:requirements)
+  - chalice >=1.13
   - click >=7.0
   - click-plugins
   - entrypoints
+  - environs
+  - jinja2
+  - pyasn1 0.4.8
+  - pypubsub 4.0.3
+  - python-dateutil
+  - python-jose 3.0.1
+  - requests 2.22.0
+  - rsa 4.0
+  - semver
+  - pip:
+      - octokitpy
 
   # Test Requirements (setup.py:test_requirements)
   - pytest >=3
+  - pytest-chalice
   - pytest-cov
 
   # Documentation Requirements

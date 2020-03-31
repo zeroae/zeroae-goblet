@@ -30,7 +30,7 @@ ZeroAE's GitHub App framework
 
 
 
-A Chalice blueprint for creating GitHub Apps
+A Chalice_ Blueprint for creating `GitHub Apps`_ inspired by Probot_
 
 
 * Free software: Apache
@@ -47,5 +47,8 @@ Features
 
 This package was created with ght-render_ and the `sodre/ght-pypackage`_ project template.
 
+.. _Chalice: https://github.com/aws/chalice
+.. _`GitHub Apps`: https://developer.github.com/apps
+.. _Probot: https://probot.github.io
 .. _ght-render: https://github.com/sodre/action-ght-render
 .. _`sodre/ght-pypackage`: https://github.com/sodre/ght-pypackage

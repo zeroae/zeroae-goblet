@@ -2,8 +2,9 @@
 
 """The setup script."""
 
-from setuptools import setup, find_namespace_packages
 import os
+
+from setuptools import setup, find_namespace_packages
 
 with open("README.rst") as readme_file:
     readme = readme_file.read()
@@ -11,9 +12,20 @@ with open("README.rst") as readme_file:
 # The requirements section should be kept in sync with the environment.yml file
 requirements = [
     # fmt: off
+    "chalice>=1.13",
     "click>=7.0",
     "click-plugins",
     "entrypoints",
+    "environs",
+    "jinja2",
+    "octokitpy",
+    "pyasn1==0.4.8",
+    "pypubsub==4.0.3",
+    "python-dateutil",
+    "python-jose==3.0.1",
+    "requests==2.22.0",
+    "rsa==4.0",
+    "semver",
     # fmt: on
 ]
 
@@ -28,6 +40,7 @@ setup_requirements = [
 test_requirements = [
     # fmt: off
     "pytest>=3",
+    "pytest-chalice",
     "pytest-cov",
     # fmt: on
 ]

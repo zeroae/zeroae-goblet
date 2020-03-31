@@ -1,6 +1,7 @@
 """Console script for zeroae-goblet."""
 
 import sys
+
 import click
 
 
