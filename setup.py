@@ -2,8 +2,9 @@
 
 """The setup script."""
 
-from setuptools import setup, find_namespace_packages
 import os
+
+from setuptools import setup, find_namespace_packages
 
 with open("README.rst") as readme_file:
     readme = readme_file.read()
