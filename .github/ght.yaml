@@ -26,7 +26,7 @@ cookiecutter:
   # You probably want to customize them.
   project_namespace: "zeroae"
   project_slug: "goblet"
-  project_name: "zeroae's github app framework"
+  project_name: "ZeroAE's GitHub App framework"
 
   #
   # These are likely correct...
