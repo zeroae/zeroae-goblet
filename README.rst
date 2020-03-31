@@ -1,5 +1,5 @@
 =============================
-ZeroAE's GitHub App framework
+ZeroAE's GitHub App Framework
 =============================
 
 .. image:: https://img.shields.io/github/workflow/status/zeroae/zeroae-goblet/pypa-conda?label=pypa-conda&logo=github&style=flat-square
@@ -33,7 +33,7 @@ ZeroAE's GitHub App framework
 A Chalice_ Blueprint for creating `GitHub Apps`_ inspired by Probot_
 
 
-* Free software: Apache
+* Free software: Apache-2.0
 * Documentation: https://zeroae-goblet.readthedocs.io.
 
 
