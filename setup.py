@@ -18,8 +18,8 @@ requirements = [
     "entrypoints",
     "environs",
     "jinja2",
-    "octokitpy==0.13.0",
-    "pypubsub==4.0.3",
+    "octokitpy>=0.13.0,<0.14",
+    "pypubsub>=4.0.3,<5",
     "python-dateutil",
     # fmt: on
 ]
