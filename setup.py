@@ -19,7 +19,7 @@ requirements = [
     "environs",
     "jinja2>=2.9,<3",
     "octokitpy>=0.13.0,<0.14",
-    "pypubsub>=4.0.3,<5",
+    "PyPubSub>=4.0.3,<5",
     "python-dateutil",
     # fmt: on
 ]
