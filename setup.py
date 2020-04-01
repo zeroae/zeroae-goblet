@@ -64,6 +64,9 @@ setup_kwargs = dict(
     description="A Chalice blueprint for creating GitHub Apps",
     # fmt: off
     entry_points={
+        "console_scripts": [
+            "smee=zeroae.smee.__main__:main"
+        ],
         "zeroae.cli": [
             "goblet=zeroae.goblet.cli:goblet",
         ],

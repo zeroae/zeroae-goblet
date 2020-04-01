@@ -4,6 +4,7 @@ channels:
   - conda-forge
   - defaults
 dependencies:
+  - ipython
   - python
   - pip
 
@@ -36,5 +37,5 @@ dependencies:
   - pre-commit
   - black
   - flake8
+  - rsa
   - twine
-
