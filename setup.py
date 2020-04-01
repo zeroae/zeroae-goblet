@@ -65,7 +65,7 @@ setup_kwargs = dict(
     # fmt: off
     entry_points={
         "console_scripts": [
-            "smee=zeroae.smee.cli:main"
+            "smee=zeroae.smee.cli:smee"
         ],
         "zeroae.cli": [
             "goblet=zeroae.goblet.cli:goblet",
