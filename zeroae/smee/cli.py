@@ -28,15 +28,24 @@ from zeroae.smee import connect
     "--url",
     help="URL of the webhook proxy service.",
     default="https://smee.io/new",
+    show_default=True,
 )
 @click.option(
     "-t",
     "--target",
     help="Full URL (including protocol and path) of the target service the events will be "
-    "forwarded to. (default: http://127.0.0.1:{port}/{path}",
+    "forwarded to. [default: http://127.0.0.1:{port}/{path}]",
 )
-@click.option("-p", "--port", help="Local HTTP server port", default=3000)
-@click.option("-P", "--path", help="URL path to post proxied requests to", default="/")
+@click.option(
+    "-p", "--port", help="Local HTTP server port", default=3000, show_default=True
+)
+@click.option(
+    "-P",
+    "--path",
+    help="URL path to post proxied requests to",
+    default="/",
+    show_default=True,
+)
 def smee(url, target, port, path):
     """
     Webhook data delivery client.
