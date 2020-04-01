@@ -6,4 +6,5 @@ omit =
     setup.py
     zeroae/goblet/__main__.py
     zeroae/goblet/_version.py
+    zeroae/smee/__main__.py
     tests/*

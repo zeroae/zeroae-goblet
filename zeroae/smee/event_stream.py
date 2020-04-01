@@ -51,7 +51,7 @@ class Event:
 
 
 def session() -> Session:
-    """Return a request Session configured for processing an Event-Stream"""
+    """Return a request Session configured for processing an Event-Stream."""
     from requests import session
 
     s = session()
@@ -61,6 +61,7 @@ def session() -> Session:
 
 
 def get(url: str, params=None, **kwargs):
+    """Sends a GET request that only accepts a text/event-stream response."""
     from requests import get
 
     accept_headers = {"Accept": "text/event-stream"}
@@ -73,10 +74,10 @@ def get(url: str, params=None, **kwargs):
 
 
 def iter_events(r: models.Response) -> Event:
-    """Iterates over the response data, one Event at a time.  When
-       stream=True is set on the request, this avoids reading the
-       content at once into memory for large responses.
-       .. note:: This method is not reentrant safe.
+    """Iterates over the response data, one Event at a time.
+    When stream=True is set on the request, this avoids reading the
+    content at once into memory for large responses.
+    .. note:: This method is not reentrant safe.
     """
 
     event = None

@@ -14,6 +14,7 @@
 #  limitations under the License.
 # ------------------------------------------------------------------------------
 
+"""Webhook data delivery client. Please visit https://smee.io for more information."""
 from dataclasses import dataclass
 
 import requests
