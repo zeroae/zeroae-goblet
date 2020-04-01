@@ -22,6 +22,7 @@ from zeroae.smee import connect
 
 
 @click.command(name="smee")
+@click.version_option("0.0.1")
 @click.option(
     "-u",
     "--url",
