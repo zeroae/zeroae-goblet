@@ -37,7 +37,8 @@ from zeroae.smee import connect
 @click.option("-p", "--port", help="Local HTTP server port", default=3000)
 @click.option("-P", "--path", help="URL path to post proxied requests to", default="/")
 def smee(url, target, port, path):
-    """Webhook data delivery client.
+    """
+    Webhook data delivery client.
 
     Please visit https://smee.io for more information.
     """
