@@ -15,6 +15,7 @@ requirements = [
     "chalice>=1.13",
     "click>=7.0",
     "click-plugins",
+    "click-log",
     "entrypoints",
     "environs",
     "jinja2>=2.9,<3",
@@ -37,6 +38,7 @@ test_requirements = [
     "pytest>=3",
     "pytest-chalice",
     "pytest-cov",
+    "requests-mock",
     # fmt: on
 ]
 
