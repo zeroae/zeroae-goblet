@@ -32,6 +32,7 @@ click_log.basic_config(logger)
     help="URL of the webhook proxy service.",
     default="https://smee.io/new",
     show_default=True,
+    envvar="WEBHOOK_PROXY",
 )
 @click.option(
     "-t",
