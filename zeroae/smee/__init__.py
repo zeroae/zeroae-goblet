@@ -41,13 +41,8 @@ class SmeeClient(object):
         self.source = self._events.url
 
     def run(self):
-        callbacks = {
-            None: self.on_payload,
-            "ping": self.on_ping,
-            "ready": self.on_ready,
-        }
         for event in self._events.iter_events():
-            callbacks[event.type](event)
+            self.__getattribute__(f"on_{event.type}")(event)
 
     def on_ping(self, event):
         logger.debug(f"{self.source} is still alive...")
@@ -55,7 +50,7 @@ class SmeeClient(object):
     def on_ready(self, event):
         logger.info(f"Connected {self.source}")
 
-    def on_payload(self, event: event_stream.Event):
+    def on_message(self, event: event_stream.Event):
         smee_event = event.json()
         body = smee_event.pop("body")
         _ = smee_event.pop("query")

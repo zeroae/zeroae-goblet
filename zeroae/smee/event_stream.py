@@ -16,8 +16,7 @@
 
 from dataclasses import dataclass
 
-from requests import Session
-from requests import models
+import requests
 from requests.compat import json as complexjson
 
 
@@ -30,7 +29,7 @@ class Event:
     """
 
     id: str = None
-    event: str = None
+    event: str = "message"
     retry: int = 2 * 1_000
     _data: str = None
 
@@ -44,36 +43,27 @@ class Event:
 
     @data.setter
     def data(self, v: str):
-        self._data = "\n".join([self._data, v]) if self._data else v
+        self._data = v if self._data is None else "\n".join([self._data, v])
 
     def json(self, **kwargs):
         return complexjson.loads(self._data, **kwargs)
 
 
-def session() -> Session:
+def session() -> requests.Session:
     """Return a request Session configured for processing an Event-Stream."""
-    from requests import session
-
-    s = session()
+    s = requests.Session()
     s.headers["Accept"] = "text/event-stream"
     s.stream = True
     return s
 
 
-def get(url: str, params=None, **kwargs):
+def get(url: str, **kwargs):
     """Sends a GET request that only accepts a text/event-stream source."""
-    from requests import get
-
-    accept_headers = {"Accept": "text/event-stream"}
-    if "headers" not in kwargs:
-        kwargs["headers"] = accept_headers
-    else:
-        kwargs["headers"].update(accept_headers)
-
-    return get(url, params, **kwargs, stream=True)
+    with session() as s:
+        return s.get(url, **kwargs)
 
 
-def iter_events(r: models.Response) -> Event:
+def iter_events(r: requests.models.Response) -> Event:
     """Iterates over the source data, one Event at a time.
     When stream=True is set on the request, this avoids reading the
     content at once into memory for large responses.
@@ -84,20 +74,18 @@ def iter_events(r: models.Response) -> Event:
     r.encoding = r.encoding if r.encoding else "utf-8"
     for line in r.iter_lines(chunk_size=128, decode_unicode=True):
         if not line:
-            yield event
+            if event is not None and event.data is not None:
+                yield event
             event = None
         elif line.startswith(":"):
             # Ignore comments
             pass
-        elif ":" not in line:
-            # unsupported field
-            pass
         else:
-            k, v = line.split(":", maxsplit=1)
             if event is None:
                 event = Event()
+            k, v = line.split(":", maxsplit=1) if ":" in line else (line, "")
             if hasattr(event, k):
-                event.__setattr__(k, v.lstrip())
+                event.__setattr__(k, v[1:] if v.startswith(" ") else v)
 
 
-models.Response.iter_events = iter_events
+requests.models.Response.iter_events = iter_events

@@ -61,5 +61,5 @@ def smee(url, target, port, path):
         target = urljoin(f"http://127.0.0.1:{port}/", path)
 
     client = SmeeClient(source=url, target=target)
-    logger.info(f"Forwarding {smee.source} to {target}")
+    logger.info(f"Forwarding {client.source} to {target}")
     client.run()

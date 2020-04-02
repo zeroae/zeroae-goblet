@@ -29,6 +29,7 @@ dependencies:
   - pytest >=3
   - pytest-chalice
   - pytest-cov
+  - requests-mock
 
   # Documentation Requirements
   - sphinx
