@@ -15,6 +15,7 @@ requirements = [
     "chalice>=1.13",
     "click>=7.0",
     "click-plugins",
+    "click-log",
     "entrypoints",
     "environs",
     "jinja2>=2.9,<3",
@@ -37,6 +38,7 @@ test_requirements = [
     "pytest>=3",
     "pytest-chalice",
     "pytest-cov",
+    "requests-mock",
     # fmt: on
 ]
 
@@ -64,6 +66,9 @@ setup_kwargs = dict(
     description="A Chalice blueprint for creating GitHub Apps",
     # fmt: off
     entry_points={
+        "console_scripts": [
+            "smee=zeroae.smee.cli:smee"
+        ],
         "zeroae.cli": [
             "goblet=zeroae.goblet.cli:goblet",
         ],

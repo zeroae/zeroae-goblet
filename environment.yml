@@ -4,6 +4,7 @@ channels:
   - conda-forge
   - defaults
 dependencies:
+  - ipython
   - python
   - pip
 
@@ -16,6 +17,7 @@ dependencies:
   - chalice >=1.13
   - click >=7.0
   - click-plugins
+  - click-log
   - entrypoints
   - environs
   - jinja2 >=2.9,<3
@@ -27,6 +29,7 @@ dependencies:
   - pytest >=3
   - pytest-chalice
   - pytest-cov
+  - requests-mock
 
   # Documentation Requirements
   - sphinx
@@ -36,5 +39,5 @@ dependencies:
   - pre-commit
   - black
   - flake8
+  - rsa
   - twine
-
