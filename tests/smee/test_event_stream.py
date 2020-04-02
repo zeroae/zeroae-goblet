@@ -62,7 +62,6 @@ def test_no_event(stream, data, requests_mock):
     [
         ("data\n\n", ""),
         ("data\ndata\n\n", "\n"),
-        ("data:🥇\n\n", "🥇"),
         ("data:test\n\n", "test"),
         ("data: test\n\n", "test"),
         ("data:  test\n\n", " test"),
@@ -77,3 +76,15 @@ def test_one_event(stream, data, requests_mock):
     assert len(events) == 1
     assert events[0].data == data
     assert events[0].type == "message"
+
+
+@pytest.mark.parametrize(
+    "stream,data", [("data: {}\n\n", {}), ('data: {"key":"🥇"}\n\n', {"key": "🥇"})],
+)
+def test_one_json_event(stream, data, requests_mock):
+    requests_mock.get("mock://smee.io/new", text=textwrap.dedent(stream))
+    r = event_stream.get("mock://smee.io/new")
+    events: list[Event] = list(r.iter_events())
+    assert len(events) == 1
+    assert events[0].type == "message"
+    assert events[0].json() == data
