@@ -24,8 +24,15 @@ from . import event_stream
 
 @dataclass
 class SmeeClient(object):
-    response: requests.Response
-    target_url: str
+    source: str
+    target: str
+
+    _events: requests.Response
+
+    def __init__(self, source, target):
+        self._events = event_stream.get(source)
+        self.source = self._events.url
+        self.target = target
 
     def run(self):
         callbacks = {
@@ -33,14 +40,14 @@ class SmeeClient(object):
             "ping": self.on_ping,
             "ready": self.on_ready,
         }
-        for event in self.response.iter_events():
+        for event in self._events.iter_events():
             callbacks[event.type](event)
 
     def on_ping(self, event):
-        print(f"{self.response.url} is still alive...")
+        print(f"{self.source} is still alive...")
 
     def on_ready(self, event):
-        print(f"Connected {self.response.url}")
+        print(f"Connected {self.source}")
 
     def on_payload(self, event: event_stream.Event):
         smee_event = event.json()
@@ -48,11 +55,6 @@ class SmeeClient(object):
         _ = smee_event.pop("query")
         _ = smee_event.pop("timestamp")
         try:
-            requests.post(self.target_url, json=body, headers=smee_event)
+            requests.post(self.target, json=body, headers=smee_event)
         except Exception:
             pass
-
-
-def connect(webhook_proxy, target):
-    events = event_stream.get(webhook_proxy)
-    return SmeeClient(events, target)

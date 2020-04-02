@@ -18,7 +18,7 @@ from urllib.parse import urljoin
 
 import click
 
-from zeroae.smee import connect
+from zeroae.smee import SmeeClient
 
 
 @click.command(name="smee")
@@ -55,6 +55,6 @@ def smee(url, target, port, path):
     if target is None:
         target = urljoin(f"http://127.0.0.1:{port}/", path)
 
-    smee = connect(url, target)
-    print(f"Forwarding {smee.response.url} to {target}")
+    smee = SmeeClient(source=url, target=target)
+    print(f"Forwarding {smee.source} to {target}")
     smee.run()
