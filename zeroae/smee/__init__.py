@@ -33,10 +33,12 @@ class SmeeClient(object):
     _events: requests.Response
 
     def __init__(self, source, target):
-        self._events = event_stream.get(source)
-        self._logger = logger
-        self.source = self._events.url
         self.target = target
+
+        self._events = event_stream.get(source)
+        self._events.raise_for_status()
+
+        self.source = self._events.url
 
     def run(self):
         callbacks = {
@@ -60,5 +62,7 @@ class SmeeClient(object):
         _ = smee_event.pop("timestamp")
         try:
             requests.post(self.target, json=body, headers=smee_event)
-        except Exception:
-            pass
+        except requests.exceptions.ConnectionError:
+            logger.warning(
+                f"Event {event.id} was not delivered. Target did not respond."
+            )
