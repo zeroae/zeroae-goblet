@@ -17,8 +17,11 @@
 from urllib.parse import urljoin
 
 import click
+import click_log
 
-from zeroae.smee import SmeeClient
+from zeroae.smee import SmeeClient, logger
+
+click_log.basic_config(logger)
 
 
 @click.command(name="smee")
@@ -46,6 +49,7 @@ from zeroae.smee import SmeeClient
     default="/",
     show_default=True,
 )
+@click_log.simple_verbosity_option(logger, "-l", "--logging", show_default=True)
 def smee(url, target, port, path):
     """
     Webhook data delivery client.
@@ -56,5 +60,5 @@ def smee(url, target, port, path):
         target = urljoin(f"http://127.0.0.1:{port}/", path)
 
     smee = SmeeClient(source=url, target=target)
-    print(f"Forwarding {smee.source} to {target}")
+    logger.info(f"Forwarding {smee.source} to {target}")
     smee.run()

@@ -15,11 +15,14 @@
 # ------------------------------------------------------------------------------
 
 """Webhook data delivery client. Please visit https://smee.io for more information."""
+import logging
 from dataclasses import dataclass
 
 import requests
 
 from . import event_stream
+
+logger = logging.getLogger(__name__)
 
 
 @dataclass
@@ -31,6 +34,7 @@ class SmeeClient(object):
 
     def __init__(self, source, target):
         self._events = event_stream.get(source)
+        self._logger = logger
         self.source = self._events.url
         self.target = target
 
@@ -44,10 +48,10 @@ class SmeeClient(object):
             callbacks[event.type](event)
 
     def on_ping(self, event):
-        print(f"{self.source} is still alive...")
+        logger.debug(f"{self.source} is still alive...")
 
     def on_ready(self, event):
-        print(f"Connected {self.source}")
+        logger.info(f"Connected {self.source}")
 
     def on_payload(self, event: event_stream.Event):
         smee_event = event.json()
