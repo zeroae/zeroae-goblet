@@ -99,7 +99,7 @@ def _load_app_options(env: Env):
         APP_PUBLIC = env.bool("PUBLIC", True)
         with env.prefixed("DEFAULT_"):
             APP_DEFAULT_EVENTS = env.list(
-                "EVENTS", "push", validate=ContainsOnly(valid_events)
+                "EVENTS", "public", validate=ContainsOnly(valid_events)
             )
             APP_DEFAULT_PERMISSIONS = env.dict("PERMISSIONS", "metadata=read")
 
