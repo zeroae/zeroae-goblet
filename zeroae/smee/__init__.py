@@ -15,6 +15,7 @@
 # ------------------------------------------------------------------------------
 
 """Webhook data delivery client. Please visit https://smee.io for more information."""
+import json
 import logging
 from dataclasses import dataclass
 
@@ -52,11 +53,11 @@ class SmeeClient(object):
 
     def on_message(self, event: event_stream.Event):
         smee_event = event.json()
-        body = smee_event.pop("body")
+        body = json.dumps(smee_event.pop("body"), separators=(",", ":"))
         _ = smee_event.pop("query")
         _ = smee_event.pop("timestamp")
         try:
-            requests.post(self.target, json=body, headers=smee_event)
+            requests.post(self.target, data=body, headers=smee_event)
         except requests.exceptions.ConnectionError:
             logger.warning(
                 f"Event {event.id} was not delivered. Target did not respond."
