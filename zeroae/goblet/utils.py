@@ -62,3 +62,15 @@ def get_create_app_url():
     host = config.GHE_HOST
 
     return f"{proto}://{host}{org_path}/settings/apps/new"
+
+
+def start_smee_client(target_url) -> str:
+    """Start a Threaded Smee Client with source set to WEBHOOK_PROXY_URL"""
+    from threading import Thread
+    from zeroae.smee import SmeeClient
+
+    client = SmeeClient(source=config.WEBHOOK_PROXY_URL, target=target_url)
+    t = Thread(name=client.source, target=client.run, daemon=True)
+    t.start()
+
+    return client.source
