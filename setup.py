@@ -22,6 +22,7 @@ requirements = [
     "octokitpy>=0.13.0,<0.14",
     "PyPubSub>=4.0.3,<5",
     "python-dateutil",
+    "zeroae-cli",
     # fmt: on
 ]
 
@@ -67,7 +68,7 @@ setup_kwargs = dict(
     # fmt: off
     entry_points={
         "console_scripts": [
-            "smee=zeroae.smee.cli:smee"
+            "smee=zeroae.smee.cli:smee",
         ],
         "zeroae.cli": [
             "goblet=zeroae.goblet.cli:goblet",

@@ -24,6 +24,7 @@ dependencies:
   - octokitpy >=0.13.0,<0.14
   - pypubsub >=4.0.3,<5
   - python-dateutil
+  - zeroae-cli
 
   # Test Requirements (setup.py:test_requirements)
   - pytest >=3
